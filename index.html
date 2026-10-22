@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a1020">
+<title>Azan — Creator Tools</title>
+<meta name="description" content="Azan creator tools for video links, descriptions, hashtags, and content workflows.">
+<style>
+:root{--bg:#090e1b;--panel:#111a2d;--panel2:#0d1527;--text:#f4f7ff;--muted:#9eacc7;--line:#26334e;--blue:#7c6cff;--cyan:#50e3c2;--gold:#ffd37a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#25356a 0%,transparent 52%),var(--bg);color:var(--text);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(1100px,calc(100% - 36px));margin:auto}
+header{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}
+.brand{display:flex;align-items:center;gap:10px;font-size:23px;font-weight:850;letter-spacing:-.7px}.logo{width:39px;height:39px;border-radius:13px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:#081222;font-weight:1000}
+nav{display:flex;gap:26px;color:var(--muted);font-size:14px}nav a:hover{color:white}.pill{border:1px solid #ffffff22;padding:9px 15px;border-radius:12px;font-size:13px}
+.hero{text-align:center;padding:70px 0 38px}.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(38px,6vw,66px);line-height:1.05;letter-spacing:-2.5px;margin:17px 0 18px}h1 span{background:linear-gradient(90deg,#9c91ff,#50e3c2);background-clip:text;color:transparent}
+.sub{max-width:660px;margin:0 auto;color:var(--muted);font-size:17px}
+.panel{border:1px solid #ffffff20;border-radius:20px;background:#10182be8;box-shadow:0 24px 80px #0005;padding:20px;text-align:left}
+.mainpanel{max-width:820px;margin:30px auto 0}.label{display:block;color:var(--muted);font-size:12px;font-weight:750;letter-spacing:.7px;margin:0 0 8px}
+.inputrow{display:flex;gap:10px}.inputrow input,.field{flex:1;min-width:0;background:#091020;color:white;border:1px solid #2a3855;border-radius:12px;outline:0;padding:14px;font-size:15px}
+input::placeholder,textarea::placeholder{color:#8290ad}
+button,.btn{border:0;border-radius:12px;padding:13px 18px;background:linear-gradient(135deg,var(--blue),#5c8dff);color:white;font-weight:750;cursor:pointer;font-size:14px;white-space:nowrap}button:hover,.btn:hover{filter:brightness(1.1)}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.secondary{background:#202b44;border:1px solid #34415e}.subtlebtn{background:#10182b;border:1px solid #34415e}
+.platforms{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 15px}.platform{background:#0b1325;border:1px solid #2b3854;color:var(--muted);padding:8px 13px;border-radius:10px}.platform.active{background:#29264f;border-color:#8375ff;color:white}
+.hint{color:var(--muted);font-size:12px;margin:10px 0 0}.status{display:none;margin-top:14px;padding:12px;border-radius:11px;background:#12332f;color:#9af2d8;font-size:13px;overflow-wrap:anywhere}.status.warn{background:#392d1d;color:#ffe0a0}
+.contentgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.card{border:1px solid var(--line);background:linear-gradient(160deg,#121d32,#0c1323);border-radius:17px;padding:20px;min-width:0}.card h2,.card h3{margin:0 0 13px;font-size:18px}.fieldblock{margin:13px 0}.fieldblock textarea{width:100%;resize:vertical;min-height:125px;border:1px solid #2a3855;background:#091020;color:var(--text);border-radius:11px;padding:12px;font:14px/1.5 inherit;outline:0}.fieldblock input{width:100%;background:#091020;color:white;border:1px solid #2a3855;border-radius:11px;padding:12px;font-size:14px}
+.rowbuttons{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:10px}.wide{width:100%}.resulttop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.thumb{display:none;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid var(--line);margin:12px 0}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:52px 0}.ico{width:42px;height:42px;border-radius:13px;background:#8d7cff1b;color:#b5acff;display:grid;place-items:center;font-size:20px;margin-bottom:16px}.feature h3{margin:0 0 7px;font-size:17px}.feature p{margin:0;color:var(--muted);font-size:14px}
+.sectiontitle{text-align:center;margin:58px 0 24px}.sectiontitle h2{font-size:30px;margin:0 0 8px;letter-spacing:-.8px}.sectiontitle p{color:var(--muted);margin:0}
+.steps,.faqs{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.faq{border:1px solid var(--line);background:linear-gradient(160deg,#121d32,#0c1323);border-radius:17px;padding:20px}.faq h3{font-size:15px;margin:0 0 8px}.faq p{font-size:14px;color:var(--muted);margin:0}
+.stepnum{color:var(--cyan);font-weight:900;font-size:13px}.step h3{margin:8px 0}.step p{margin:0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid #ffffff14;margin-top:70px;padding:25px 0 35px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.smallprint{font-size:12px;color:var(--muted);margin-top:12px}.hidden{display:none!important}
+@media(max-width:720px){nav{display:none}.hero{padding-top:52px}.inputrow{flex-direction:column}.inputrow button{width:100%}.features,.steps,.faqs{grid-template-columns:1fr}.contentgrid{grid-template-columns:1fr}.sectiontitle{margin-top:45px}.mainpanel{padding:14px}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <a class="brand" href="#"><span class="logo">A</span><span>azan<span style="color:var(--cyan)">.</span></span></a>
+  <nav><a href="#tools">Creator tools</a><a href="#features">Features</a><a href="#how">How it works</a><a href="#faq">FAQ</a></nav>
+  <a class="pill" href="#tools">Open tools ↗</a>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">One simple creator workspace</div>
+    <h1>Make content work <span>for you.</span></h1>
+    <p class="sub">Organize video links, write descriptions, create hashtag ideas and copy your content in seconds — all in one clean workspace.</p>
+  </section>
+
+  <section id="tools" class="panel mainpanel">
+    <div class="platforms" aria-label="Choose a platform">
+      <button class="platform active" data-platform="YouTube">▶ YouTube</button>
+      <button class="platform" data-platform="Instagram">◎ Instagram</button>
+      <button class="platform" data-platform="TikTok">♪ TikTok</button>
+      <button class="platform" data-platform="Other">↗ Other link</button>
+    </div>
+    <label class="label" for="videoUrl">PASTE YOUR VIDEO LINK</label>
+    <div class="inputrow"><input id="videoUrl" type="url" placeholder="https://…" aria-label="Video URL"><button id="useLink">Analyze link</button></div>
+    <p class="hint">YouTube thumbnail preview appears instantly. Connect the backend below to check details and download videos you own or are authorized to save.</p>
+    <img id="thumbnail" class="thumb" alt="YouTube video thumbnail preview">
+    <div id="linkStatus" class="status" role="status"></div>
+    <div class="contentgrid">
+      <article class="card">
+        <div class="resulttop"><h2>✎ Description</h2><span class="hint">Editable</span></div>
+        <div class="fieldblock"><label class="label" for="videoTitle">VIDEO TITLE / TOPIC</label><input id="videoTitle" class="field" placeholder="e.g. Easy coffee recipe"></div>
+        <div class="fieldblock"><label class="label" for="description">DESCRIPTION TEXT</label><textarea id="description" placeholder="Write your own description or generate a starter caption…"></textarea></div>
+        <div class="rowbuttons"><button class="secondary" id="generateDescription">Generate description</button><button id="copyDescription">Copy description</button></div>
+      </article>
+      <article class="card">
+        <div class="resulttop"><h2># Hashtags</h2><span class="hint">Editable</span></div>
+        <div class="fieldblock"><label class="label" for="hashtags">HASHTAGS</label><textarea id="hashtags" style="min-height:125px" placeholder="#creator #video #shorts"></textarea></div>
+        <div class="rowbuttons"><button class="secondary" id="generateHashtags">Generate hashtags</button><button id="copyHashtags">Copy hashtags</button></div>
+        <div class="fieldblock"><label class="label" for="quality">PREFERRED VIDEO QUALITY</label><select id="quality" class="field"><option>Best available</option><option>2160p (4K)</option><option>1080p (Full HD)</option><option>720p (HD)</option><option>480p</option><option>Audio only</option></select></div>
+        <button class="wide" id="downloadInfo">Download video ↓</button>
+        <p class="smallprint">Requires the Azan backend to be running. Use only videos you own or have permission to download, and follow YouTube's terms.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <article class="card"><div class="ico">↗</div><h3>Link workspace</h3><p>Paste a public video URL and see basic link validation plus YouTube thumbnail preview when available.</p></article>
+    <article class="card"><div class="ico">✎</div><h3>Description helper</h3><p>Generate a customizable starter caption from your title or topic, then edit and copy it.</p></article>
+    <article class="card"><div class="ico">#</div><h3>Hashtag ideas</h3><p>Get basic hashtag suggestions from your topic, or enter your own and copy them instantly.</p></article>
+  </section>
+
+  <section id="how">
+    <div class="sectiontitle"><h2>How it works</h2><p>Simple tools for your everyday content workflow.</p></div>
+    <div class="steps">
+      <article class="card step"><div class="stepnum">STEP 01</div><h3>Paste a link</h3><p>Choose a platform and enter a video URL.</p></article>
+      <article class="card step"><div class="stepnum">STEP 02</div><h3>Prepare your text</h3><p>Generate a starter description and hashtags, then customize them.</p></article>
+      <article class="card step"><div class="stepnum">STEP 03</div><h3>Copy your content</h3><p>Copy the description or hashtags with one click.</p></article>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="sectiontitle"><h2>Frequently asked questions</h2><p>Clear expectations, no surprises.</p></div>
+    <div class="faqs" style="grid-template-columns:repeat(2,1fr)">
+      <article class="faq"><h3>How does downloading work?</h3><p>The included backend can process supported public YouTube URLs. Run it on a server and only download content you own or are authorized to save.</p></article>
+      <article class="faq"><h3>Does the description generator use AI?</h3><p>This demo creates a basic editable template locally in your browser. AI-quality generation would require an AI service/API connection.</p></article>
+      <article class="faq"><h3>Are my captions uploaded?</h3><p>The copy and template tools run in your browser. This static page does not send your description or hashtags to a server.</p></article>
+      <article class="faq"><h3>Can I use it on a phone?</h3><p>Yes, the layout adapts to smaller screens as well as desktop browsers.</p></article>
+    </div>
+  </section>
+</main>
+<footer class="wrap"><a class="brand" href="#"><span class="logo" style="width:29px;height:29px;border-radius:9px;font-size:15px">A</span><span>azan.</span></a><span>Tools for your content workflow.</span><span>© <span id="year"></span> Azan</span></footer>
+<script>
+const $=id=>document.getElementById(id);
+$('year').textContent=new Date().getFullYear();
+let activePlatform='YouTube';
+function status(message,warn=false){const el=$('linkStatus');el.textContent=message;el.classList.toggle('warn',warn);el.style.display='block'}
+document.querySelectorAll('[data-platform]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-platform]').forEach(b=>b.classList.remove('active'));btn.classList.add('active');activePlatform=btn.dataset.platform;$('videoUrl').placeholder=activePlatform==='YouTube'?'https://www.youtube.com/watch?v=…':activePlatform==='Instagram'?'https://www.instagram.com/reel/…':activePlatform==='TikTok'?'https://www.tiktok.com/@user/video/…':'https://…'}));
+function getYoutubeId(raw){try{const u=new URL(raw);if(u.hostname.includes('youtu.be'))return u.pathname.split('/').filter(Boolean)[0]||'';if(u.hostname.includes('youtube.com')){if(u.searchParams.get('v'))return u.searchParams.get('v');const p=u.pathname.split('/').filter(Boolean);if(['shorts','embed','live'].includes(p[0]))return p[1]||''}}catch(e){}return ''}
+$('useLink').addEventListener('click',async()=>{const raw=$('videoUrl').value.trim();if(!raw){status('Paste a video link first.',true);$('videoUrl').focus();return}try{const u=new URL(raw);if(!['https:','http:'].includes(u.protocol))throw 0;const id=getYoutubeId(raw);$('thumbnail').style.display='none';if(id&&/^[\w-]{11}$/.test(id)){$('thumbnail').src='https://i.ytimg.com/vi/'+id+'/hqdefault.jpg';$('thumbnail').style.display='block';$('videoTitle').value=$('videoTitle').value.trim();status('Checking video details with Azan backend…');try{const r=await fetch('/api/info',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:raw})});const data=await r.json();if(!r.ok)throw new Error(data.detail||'Backend request failed');$('videoTitle').value=data.title||$('videoTitle').value;status('Video ready: '+(data.title||'YouTube video')+'. Available qualities: '+((data.qualities||[]).join(', ')||'best available')+'.')}catch(err){status('Thumbnail loaded, but backend did not respond. Start the Azan backend and open the site at http://127.0.0.1:8000. Details: '+err.message,true)}}else{status('Please enter a supported YouTube video URL.',true)} }catch(e){status('Please enter a valid URL starting with https://',true)}});
+function cleanTopic(){return $('videoTitle').value.trim()||'my new video'}
+function slugWords(text){return text.toLowerCase().normalize('NFKD').replace(/[^\w\s-]/g,' ').split(/\s+/).filter(Boolean)}
+$('generateDescription').addEventListener('click',()=>{const title=cleanTopic();$('description').value=`Watch "${title}" and let me know what you think in the comments! If you enjoyed this video, like, share and follow for more content.\n\nThanks for watching!\n\n#${slugWords(title).slice(0,3).join('')||'video'} #creator #newvideo`;status('Starter description created. Review and personalize it before posting.')});
+$('generateHashtags').addEventListener('click',()=>{const words=slugWords(cleanTopic()).filter(w=>w.length>2);const base=[...new Set([...words,'creator','video',activePlatform.toLowerCase()==='youtube'?'shorts':activePlatform.toLowerCase(),'content'])].slice(0,12);$('hashtags').value=base.map(w=>'#'+w.replace(/-/g,'')).join(' ');status('Basic hashtag ideas generated from your topic. Check that each tag fits your post.')});
+async function copyText(id,label,buttonId,defaultLabel){const val=$(id).value.trim();if(!val){status('Add some '+label.toLowerCase()+' first.',true);$(id).focus();return}try{await navigator.clipboard.writeText(val);$(buttonId).textContent='Copied ✓';setTimeout(()=>$(buttonId).textContent=defaultLabel,1500);status(label+' copied to clipboard.')}catch(e){$(id).focus();$(id).select();try{document.execCommand('copy');status(label+' copied to clipboard.')}catch(_){status('Clipboard permission unavailable. Select the text and copy it manually.',true)}}}
+$('copyDescription').addEventListener('click',()=>copyText('description','Description','copyDescription','Copy description'));
+$('copyHashtags').addEventListener('click',()=>copyText('hashtags','Hashtags','copyHashtags','Copy hashtags'));
+$('downloadInfo').addEventListener('click',async()=>{const raw=$('videoUrl').value.trim();if(!raw){status('Paste and analyze a YouTube link first.',true);$('videoUrl').focus();return}const btn=$('downloadInfo');const old=btn.textContent;btn.disabled=true;btn.textContent='Preparing download…';try{const r=await fetch('/api/download',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:raw,quality:$('quality').value})});if(!r.ok){let msg='Download failed.';try{const d=await r.json();msg=d.detail||msg}catch(_){}throw new Error(msg)}const blob=await r.blob();const cd=r.headers.get('Content-Disposition')||'';const m=cd.match(/filename\*=UTF-8''([^;]+)|filename="?([^";]+)"?/i);const filename=m?decodeURIComponent(m[1]||m[2]):'azan-video.mp4';const a=document.createElement('a');const objectUrl=URL.createObjectURL(blob);a.href=objectUrl;a.download=filename;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(objectUrl);status('Download started: '+filename)}catch(e){status(e.message+' Make sure the backend is running at the same address as this page.',true)}finally{btn.disabled=false;btn.textContent=old}});
+</script>
+</body>
+</html>
