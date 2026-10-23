@@ -8,7 +8,7 @@ from starlette.background import BackgroundTask
 from pydantic import BaseModel, Field
 import yt_dlp
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent
 app = FastAPI(title="Azan Video Backend", version="1.0.0")
 
 class VideoRequest(BaseModel):
