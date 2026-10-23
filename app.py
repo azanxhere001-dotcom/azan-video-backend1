@@ -3,6 +3,7 @@ import os, re, tempfile, shutil
 from pathlib import Path
 from urllib.parse import urlparse
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from starlette.background import BackgroundTask
 from pydantic import BaseModel, Field
@@ -10,6 +11,13 @@ import yt_dlp
 
 ROOT = Path(__file__).resolve().parent
 app = FastAPI(title="Azan Video Backend", version="1.0.0")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://azanfreetool.netlify.app", "https://azan-video-backend1.azan.blitz.cloud"],
+    allow_credentials=False,
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type"],
+)
 
 class VideoRequest(BaseModel):
     url: str = Field(min_length=8, max_length=2048)
